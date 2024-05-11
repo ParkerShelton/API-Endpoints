@@ -14,6 +14,10 @@ type Book struct {
 	Title string `json:"title"`
 }
 
+func test() string {
+	return "hello"
+}
+
 func getBooks(c *gin.Context) []Book {
 	db, err := sql.Open("mysql", "admin:password@tcp(parker-database.cfhfkqv5cjrl.us-east-1.rds.amazonaws.com:3306)/book_schema")
 	if err != nil {
