@@ -1,9 +1,9 @@
 package apiendpoints
 
 import (
+	// "context"
 	"database/sql"
 	"fmt"
-	"net/http"
 
 	"github.com/gin-gonic/gin"
 	_ "github.com/go-sql-driver/mysql"
@@ -14,7 +14,7 @@ type Book struct {
 	Title string `json:"title"`
 }
 
-func getBooks(c *gin.Context) {
+func getBooks(c *gin.Context) []Book {
 	db, err := sql.Open("mysql", "admin:password@tcp(parker-database.cfhfkqv5cjrl.us-east-1.rds.amazonaws.com:3306)/book_schema")
 	if err != nil {
 		fmt.Print(err.Error())
@@ -39,5 +39,5 @@ func getBooks(c *gin.Context) {
 
 	}
 
-	c.IndentedJSON(http.StatusOK, books)
+	return books
 }
