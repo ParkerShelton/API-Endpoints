@@ -14,8 +14,8 @@ type Book struct {
 	Title string `json:"title"`
 }
 
-func test() string {
-	return "hello"
+func Test(name string) string {
+	return ("hello" + name)
 }
 
 func getBooks(c *gin.Context) []Book {
