@@ -15,7 +15,8 @@ type Book struct {
 }
 
 func Test(name string) string {
-	return ("hello" + name)
+	message := fmt.Sprintf("Hi, %v. Welcome!", name)
+	return message
 }
 
 func getBooks(c *gin.Context) []Book {
